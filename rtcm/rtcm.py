@@ -1,5 +1,38 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, make_response
 app = Flask(__name__)
+#------------------------------------------------------------------------------
+@app.route('/cookies')
+def	cookies():
+	return render_template("cookies_set.html")
+#------------------------------------------------------------------------------
+@app.route('/setcookie', methods = ['POST', 'GET'])
+def setcookie():
+	if request.method == 'POST':
+		user = request.form['nm']
+		resp = make_response(render_template('cookies_read.html'))
+		resp.set_cookie('userID', user)
+		return resp
+	else:
+		return 'GET'
+#------------------------------------------------------------------------------
+@app.route('/getcookie')
+def getcookie():
+   name = request.cookies.get('userID')
+   return '<h1>welcome '+name+'</h1>'
+#------------------------------------------------------------------------------
+@app.route('/student_result_form',methods = ['POST', 'GET'])
+def	student_form():
+	return render_template("student_result.html")
+#------------------------------------------------------------------------------
+@app.route('/student_result',methods = ['POST', 'GET'])
+def student_result():
+	if request.method == 'POST':
+		result = request.form
+		return render_template("student_report.html",result = result)
+	else:
+		eresult = None
+		return render_template("student_result.html",result = result)
+		#return 'GET'
 #------------------------------------------------------------------------------
 @app.route('/hello/<name>')
 def hello_name (name):
@@ -9,6 +42,10 @@ def hello_name (name):
 def hello_world():
 	return render_template ('login.html')
 	#return 'Hello World'
+#------------------------------------------------------------------------------
+@app.route('/hello_js')
+def hello_js():
+	return render_template ('hello_js.html')
 #------------------------------------------------------------------------------
 @app.route('/hello_html')
 def hello_html():
