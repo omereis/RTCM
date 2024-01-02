@@ -1,28 +1,27 @@
 <!doctype html>
 <html>
+	<head>
+		<style>
+			table, th, td {
+			  border: 1px solid black;
+			  border-collapse: collapse;
+			}
+			</style>
+	</head>
    <body>
-      <h3>Flask Tutorial</h3>
+      <h3>Rotem Radiation Software Tests Management System</h3>
 	  <table>
 		<tr>
 			<td>
-				<a href="/hello/Joe">Hello</a>
+				Login
+				<form action = "/session_login" method = "post">
+					<p>Enter Name:</p>
+					<p><input type = "text" name = "nm" /></p>
+					<p><input type = "submit" value = "submit" /></p>
+				 </form>
 			</td>
 			<td>
-				<a href="/log">Login</a>
-			<td>
-				<a href="/hello_html">Hello (html)</a>
-			</td>
-			<td>
-				<a href="/result">Results</a>
-			</td>
-			<td>
-				<a href="/hello_js">Hello (js)</a>
-			</td>
-			<td>
-				<a href="/student_result_form">Student Result</a>
-			</td>
-			<td>
-				<a href="cookies">Cookies</a>
+				Create Account
 			</td>
 		</tr>
 	  </table>
