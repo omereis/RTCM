@@ -1,9 +1,16 @@
-
-{% extends 'rtcm_header.html' %}
-
-{% block rtcm_content %}
-
-
+<!doctype html>
+<html>
+<head>
+	<style>
+		table, th, td {
+  		border: 1px solid black;
+		};
+		tr:nth-child(even) {
+			background-color: #D6EEEE;
+		}
+	</style>
+</head>
+   <body>
       <h1>Hello {{ first_name }}!</h1>
 	<h3>Filters</h3>
 	<table>
@@ -40,4 +47,16 @@
 -->
 		{% endfor %}
 	</table>
-{% endblock %}
+	<hr>
+			{{ toppings.0 }}
+	<hr>
+		{% for top in toppings %}
+			{% if top | int != 0 %}
+				{{ top + 100 }}
+			{% else %}
+				{{ top }}
+			{% endif %}
+			<br>
+		{% endfor %}
+   </body>
+</html>

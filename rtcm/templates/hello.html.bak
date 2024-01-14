@@ -1,8 +1,6 @@
 
 {% extends 'rtcm_header.html' %}
-
-{% block rtcm_content %}
-
+{% block content %}
 
       <h1>Hello {{ first_name }}!</h1>
 	<h3>Filters</h3>
@@ -40,4 +38,15 @@
 -->
 		{% endfor %}
 	</table>
+	<hr>
+			{{ toppings.0 }}
+	<hr>
+		{% for top in toppings %}
+			{% if top | int != 0 %}
+				{{ top + 100 }}
+			{% else %}
+				{{ top }}
+			{% endif %}
+			<br>
+		{% endfor %}
 {% endblock %}
