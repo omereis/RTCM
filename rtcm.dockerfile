@@ -15,7 +15,7 @@ RUN apt install -y curl
 RUN curl -sSL https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 RUN python /tmp/get-pip.py
 RUN python -m pip install --upgrade pip
-RUN pip install flask
+RUN pip install flask flask-wtf flask_bootstrap
 RUN pip install Flask-session
 
 ENV HOME=/home/oe
