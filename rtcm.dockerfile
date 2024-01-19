@@ -17,6 +17,7 @@ RUN python /tmp/get-pip.py
 RUN python -m pip install --upgrade pip
 RUN pip install flask flask-wtf flask_bootstrap
 RUN pip install Flask-session
+RUN pip install flask-login
 
 ENV HOME=/home/oe
 
