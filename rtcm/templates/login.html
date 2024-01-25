@@ -1,23 +1,44 @@
-<html>
-  <head>
-    <title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Please login</h1>
-      <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
-  </body>
-</html>
+{% extends 'rtcm_header.html' %}
+
+
+{% block rtcm_content %}
+<h3>{{ name }} - Login</h3>
+<hr>
+<!-- ********************************************************************** -->
+<form method="post" action="/navbar_login" enctype="multipart/form-data"> 
+	{{ form.csrf_token }} 
+	<p>{{ form.username.label }} {{ form.username() }}</p> 
+	<p>{{ form.password.label }} {{ form.password() }}</p> 
+	<p><input type="submit" value="Submit"></p> 
+</form> 
+
+<form iaction="/login_handler" method="post">
+	<table>
+		<tr>
+			<td>
+				User name
+			</td>
+			<td>
+				<input type="text" name="txtUsername">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Password
+			</td>
+			<td>
+				<input type="text" name="txtPassword">
+			</td>
+		</tr>
+	</table>
+</form>
+<!-- ********************************************************************** -->
+<script>
+	function onLoadClick() {
+		checkMenuItem ("miLogin");
+	}
+</script>
+<!-- ********************************************************************** -->
+	<input type="button" value="Login">
+<hr>
+{% endblock %}
