@@ -20,6 +20,10 @@ RUN pip install Flask-session
 RUN pip install flask-login
 
 ENV HOME=/home/oe
+ENV FLASK_APP=alchemy/al
+
+#with app.app_context():
+#    db.create_all()
 
 WORKDIR /home/oe/rtcm
 #WORKDIR /home/oe/cpp/rp_server

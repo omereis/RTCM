@@ -1,0 +1,37 @@
+
+{% extends 'rtcm_header.html' %}
+
+<script type="text/javascript">
+    var csrf_token = "{{ csrf_token() }}";
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrf_token);
+            }
+        }
+    });
+</script>
+
+{% block rtcm_content %}
+
+{% if name %}
+	<h3>Are you {{ name }}</h3>
+{% else %}
+	<h3>We don't know your name...</h3>
+	<hr>
+	 <form method='post' action="/name">
+		{{ form.hidden_tag() }}
+		<input type="hidden" name="csrf_token" value="{{ form.csrf_token() }}"/>
+		{% if form.errors %}
+			<hr>
+			{{ form }}
+			<hr>
+    		{{ form.errors }}
+		{% endif %}
+	</form>
+{% endif %}
+
+{% endblock %}
+
+

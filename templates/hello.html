@@ -1,0 +1,43 @@
+
+{% extends 'rtcm_header.html' %}
+
+{% block rtcm_content %}
+
+
+      <h1>Hello {{ first_name }}!</h1>
+	<h3>Filters</h3>
+	<table>
+		<tr>
+			<td>safe filter </td><td>{{ stuff | safe }}</td>
+		</tr>
+		<tr>
+			<td> striptags filter </td><td>{{ stuff | striptags }}</td>
+		</tr>
+		<tr>
+			<td> title filter </td><td>{{ stuff | title }}</td>
+		</tr>
+	</table>
+	<hr>
+	<Toppings<br>
+	<!-- {{ toppings }}<br> -->
+	<table>
+		{% for top in toppings %}
+		<tr>
+		<td>
+			<input type="checkbox" id="{{ top }}" value="{{ top }}">
+			{{ top }}
+			</input>
+		</td>
+<!--
+		<td>
+			<input type="checkbox" id="{{ top }}" value="{{ top }}">
+			<label for=" {{ top }}">{{ top }}</label>
+		</td>
+		</tr>
+		<tr>
+			<td>{{ top.index0 }}</td><td>{{ top }}</td>
+		</tr>
+-->
+		{% endfor %}
+	</table>
+{% endblock %}
