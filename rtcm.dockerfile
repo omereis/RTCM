@@ -18,9 +18,11 @@ RUN python -m pip install --upgrade pip
 RUN pip install flask flask-wtf flask_bootstrap
 RUN pip install Flask-session
 RUN pip install flask-login
+RUN pip install flask-sqlalchemy
 
 ENV HOME=/home/oe
-ENV FLASK_APP=alchemy/al
+#ENV FLASK_APP=alchemy/al
+ENV FLASK_APP=/home/oe/rtcm/flask_auth/project
 
 #with app.app_context():
 #    db.create_all()
