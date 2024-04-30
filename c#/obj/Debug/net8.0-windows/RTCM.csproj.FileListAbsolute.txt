@@ -1,0 +1,17 @@
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\bin\Debug\net8.0-windows\RTCM.exe
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\bin\Debug\net8.0-windows\RTCM.deps.json
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\bin\Debug\net8.0-windows\RTCM.runtimeconfig.json
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\bin\Debug\net8.0-windows\RTCM.dll
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\bin\Debug\net8.0-windows\RTCM.pdb
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.frmMain.resources
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.csproj.GenerateResource.cache
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.AssemblyInfoInputs.cache
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.AssemblyInfo.cs
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.csproj.CoreCompileInputs.cache
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.sourcelink.json
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.dll
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\refint\RTCM.dll
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.pdb
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\RTCM.genruntimeconfig.cache
+C:\Users\Omer\Documents\Projects\Rotem\RTCM\c#\obj\Debug\net8.0-windows\ref\RTCM.dll

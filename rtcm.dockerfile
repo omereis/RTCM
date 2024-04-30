@@ -19,6 +19,12 @@ RUN pip install flask flask-wtf flask_bootstrap
 RUN pip install Flask-session
 RUN pip install flask-login
 RUN pip install flask-sqlalchemy
+RUN apt update
+RUN apt install -y mysql-server
+RUN apt install -y iputils-ping mysql-client
+# https://stackoverflow.com/questions/25135897/how-to-automatically-start-a-service-when-running-a-docker-container
+CMD service mysql start && tail -F /var/log/mysql/error.log && mysqladmin create rotem_qa
+#CMD  mysqladmin create rotem_qa
 
 ENV HOME=/home/oe
 #ENV FLASK_APP=alchemy/al

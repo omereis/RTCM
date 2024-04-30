@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  gui:
+    build: ./rtcm.dockerfile
+    ports:
+      - 5010:5010
+  database:
+    image: mysql.latest
+    ports: 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - db_data:/var/lib/mysql
