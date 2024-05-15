@@ -7,6 +7,11 @@ __pycache__/
 *.so
 bin/
 obj/
+*.vsidx
+*.bin
+*.v2
+*.suo
+
 
 # Distribution / packaging
 .Python
