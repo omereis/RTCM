@@ -36,7 +36,10 @@
 			helpToolStripMenuItem = new ToolStripMenuItem();
 			aboutToolStripMenuItem = new ToolStripMenuItem();
 			button1 = new Button();
+			statusStrip1 = new StatusStrip();
+			sblblDatabase = new ToolStripStatusLabel();
 			menuMain.SuspendLayout();
+			statusStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// menuMain
@@ -89,14 +92,15 @@
 			// instrumentsToolStripMenuItem1
 			// 
 			instrumentsToolStripMenuItem1.Name = "instrumentsToolStripMenuItem1";
-			instrumentsToolStripMenuItem1.Size = new Size(146, 22);
+			instrumentsToolStripMenuItem1.Size = new Size(180, 22);
 			instrumentsToolStripMenuItem1.Text = "Instruments...";
 			// 
 			// usersToolStripMenuItem
 			// 
 			usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			usersToolStripMenuItem.Size = new Size(146, 22);
+			usersToolStripMenuItem.Size = new Size(180, 22);
 			usersToolStripMenuItem.Text = "Users...";
+			usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -121,11 +125,27 @@
 			button1.UseVisualStyleBackColor = true;
 			button1.Click += button1_Click;
 			// 
+			// statusStrip1
+			// 
+			statusStrip1.Items.AddRange(new ToolStripItem[] { sblblDatabase });
+			statusStrip1.Location = new Point(0, 428);
+			statusStrip1.Name = "statusStrip1";
+			statusStrip1.Size = new Size(800, 22);
+			statusStrip1.TabIndex = 3;
+			statusStrip1.Text = "statusStrip1";
+			// 
+			// sblblDatabase
+			// 
+			sblblDatabase.Name = "sblblDatabase";
+			sblblDatabase.Size = new Size(55, 17);
+			sblblDatabase.Text = "Database";
+			// 
 			// main
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(statusStrip1);
 			Controls.Add(button1);
 			Controls.Add(menuMain);
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -133,8 +153,11 @@
 			Name = "main";
 			Text = "Rotem Test Case Management System";
 			FormClosed += main_FormClosed;
+			Load += main_Load;
 			menuMain.ResumeLayout(false);
 			menuMain.PerformLayout();
+			statusStrip1.ResumeLayout(false);
+			statusStrip1.PerformLayout();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -152,5 +175,7 @@
 		private ToolStripMenuItem helpToolStripMenuItem;
 		private ToolStripMenuItem aboutToolStripMenuItem;
 		private Button button1;
+		private StatusStrip statusStrip1;
+		private ToolStripStatusLabel sblblDatabase;
 	}
 }
