@@ -13,17 +13,21 @@ drop table  users;
 create table if not exists users (
 	user_id	integer not null primary key,
 	level_id	integer,
-	first	varchar(50),
-	last	varchar(50),
+	first		varchar(50),
+	last		varchar(50),
+	is_active	tinyint,
 	username	varchar(50) not null unique,
-	passwd	varchar(100),
+	passwd		varchar(100),
 	foreign key (level_id) references user_level(level_id) on update cascade on delete set null
 );
 /*--------------------------------*/
 insert into user_level(level_id,level_name) values (1,'Tester'),(2,'Manager'),(3,'Administrator');
 
-insert into users(user_id,level_id,first,last,username,passwd) values (100,3,'Rotem','SQA','admin','admin_password');
-insert into users(user_id,first,last,username,passwd) values (101,'Asi','Sharabi','asis','asis');
+insert into users(user_id,level_id,first,last,username,passwd) values (100,3,'Rotem','SQA','admin',1,'admin_password');
+delete from users;
+insert into users(user_id,level_id,first,last,is_active,username,passwd) values 
+					(100,3,'Rotem','SQA',1,'admin','admin_password'),
+					(101,1,'Asi','Sharabi',0,'asis','asis');
 
 drop view vUsers;
 create view vUsers (
@@ -32,6 +36,7 @@ create view vUsers (
 	level_name,
 	first,
 	last,
+	is_active,
 	username,
 	passwd
 	)
@@ -42,6 +47,7 @@ create view vUsers (
 			level_name,
 			first,
 			last,
+			is_active,
 			username,
 			passwd
 		from
@@ -51,10 +57,11 @@ create view vUsers (
 union
 		select
 			user_id,
-			null as 'level_id',
-			null as 'level_name',
+			'' as 'level_id',
+			'' as 'level_name',
 			first,
 			last,
+			is_active,
 			username,
 			passwd
 		from
