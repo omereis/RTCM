@@ -48,7 +48,7 @@
 			// 
 			// btnCancel
 			// 
-			btnCancel.Location = new Point(243, 326);
+			btnCancel.Location = new Point(243, 323);
 			btnCancel.Name = "btnCancel";
 			btnCancel.Size = new Size(75, 23);
 			btnCancel.TabIndex = 1;
@@ -97,6 +97,7 @@
 			btnAdd.TabIndex = 3;
 			btnAdd.Text = "Add...";
 			btnAdd.UseVisualStyleBackColor = true;
+			btnAdd.Click += btnAdd_Click;
 			// 
 			// btnEdit
 			// 

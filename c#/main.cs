@@ -18,16 +18,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace RTCM {
 	public partial class main : Form {
 		private MySqlConnection m_database;
-		//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 		public main() {
 			InitializeComponent();
 			m_database = null;
 		}
-		//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 		private void miExit_Click(object sender, EventArgs e) {
 			Close();
 		}
-		//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 		private void button1_Click(object sender, EventArgs e) {
 			if (m_database == null) {
 				string strConn = string.Format("Server='{0}'; database='{1}'; UID='{2}'; password='{3}'", "127.0.0.1", "RTCM", "RotemRadAdmin", "RotemRad2024");

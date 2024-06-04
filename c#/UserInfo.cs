@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Collections;
 //-----------------------------------------------------------------------------
 using Mysqlx.Crud;
+using Microsoft.VisualBasic;
 //-----------------------------------------------------------------------------
 namespace RTCM {
 	public class TUserInfo {
@@ -21,6 +22,7 @@ namespace RTCM {
 		private string m_strUsername;
 		private string m_strPassword;
 		private string m_strLevel;
+		protected int m_idLevel;
 		private bool   m_fIsActive;
 		public int ID {get{return(m_id);}set{m_id=value;}}
 		public string First {get{return(m_strFirst);}set{m_strFirst=value;}}
@@ -45,6 +47,7 @@ namespace RTCM {
 			Username = "";
 			Password = "";
 			Level    = "";
+			m_idLevel = 0;
 			IsActive = false;
 		}
 //-----------------------------------------------------------------------------
@@ -55,6 +58,7 @@ namespace RTCM {
 			Username = other.Username;
 			Password = other.Password;
 			Level    = other.Level;
+			m_idLevel = other.m_idLevel;
 			IsActive = other.IsActive;
 		}
 //-----------------------------------------------------------------------------
@@ -89,15 +93,38 @@ namespace RTCM {
 		public string GetFullName () {
 			return (First + " " + Last);
 		}
+//-----------------------------------------------------------------------------
+		public bool InsertyAsNew (MySqlCommand cmd, ref string strErr) {
+			TUserInfoDB userDB = new TUserInfoDB();
+			bool fInsert = userDB.InsertyAsNew (cmd, ref strErr);
+			if (fInsert)
+				AssignAll (userDB);
+			return (fInsert);
+		}
+//-----------------------------------------------------------------------------
+		public bool UpdateInDB (MySqlCommand cmd, ref string strErr) {
+			TUserInfoDB userDB = new TUserInfoDB(this);
+			bool fUpdate = userDB.UpdateInDB (cmd, ref strErr);
+			return (fUpdate);
+		}
+//-----------------------------------------------------------------------------
+		public bool DeleteFromDB (MySqlCommand cmd, ref string strErr) {
+			TUserInfoDB userDB = new TUserInfoDB(this);
+			bool fDel = userDB.DeleteFromDB (cmd, ref strErr);
+			return (fDel);
+		}
+	}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	public class TUserInfoDB : TUserInfo {
 		private static readonly string View = "vUsers";
+		private static readonly string Table = "users";
 		private static readonly string FldUserID = "user_id";
 		private static readonly string FldFirst = "first";
 		private static readonly string FldLast = "last";
 		private static readonly string FldUsername = "username";
 		private static readonly string FldPasswd = "passwd";
 		private static readonly string FldLevel = "level_name";
+		private static readonly string FldLevelID = "level_id";
 		private static readonly string FldIsActive = "is_active";
 //-----------------------------------------------------------------------------
 		public TUserInfoDB () : base(){
@@ -137,13 +164,16 @@ namespace RTCM {
 
 			try {
 				Clear ();
-				ID       = reader.GetInt32(FldUserID);//"user_id");
-				First    = reader.GetString(FldFirst);//"first");
-				Last     = reader.GetString(FldLast);//"last");
-				Username = reader.GetString(FldUsername);//"username");
-				Password = reader.GetString(FldPasswd);//"passwd");
-				Level    = reader.GetString(FldLevel);//"level_name");
-				IsActive = reader.GetInt32(FldIsActive) > 0 ? true : false;//"is_active") > 0 ? true : false;
+				ID       = TMisc.ReadIntFeild(reader, FldUserID);// reader[ID] as int? ?? 0;
+				First    = reader[FldFirst] as string;
+				Last     = reader[FldLast] as string;
+				Username = reader[FldUsername] as string;
+				Password = reader[FldPasswd] as string;
+				Level    = reader[FldLevel] as string;
+				string str = reader[FldLevelID] as string;
+				m_idLevel = TMisc.ToIntDef (str, 0);
+				int nActive = TMisc.ReadIntFeild(reader, FldIsActive);
+				IsActive = nActive == 1 ? true : false;
 				fRead = true;
 			}
 			catch (Exception e) {
@@ -152,6 +182,75 @@ namespace RTCM {
 			}
 			return(fRead);
 		}
-	}
+//-----------------------------------------------------------------------------
+		public new bool InsertyAsNew (MySqlCommand cmd, ref string strErr) {
+			int idNew=0;
+			bool fInsert=false;
+
+			try {
+				if (TMisc.GetFieldMax (cmd, Table, FldUserID, ref idNew, ref strErr)) {
+					idNew += 1;
+					string strUser = String.Format("user{0}", idNew);
+					string strSql = String.Format("insert into {0} ({1},{2}) values ({3}, {4});",
+														Table, FldUserID, FldUsername, idNew, TMisc.GetDBUpdateValue(strUser));
+					cmd.CommandText = strSql;
+					if ((fInsert = cmd.ExecuteNonQuery() > 0) == true) {
+						ID = idNew;
+						Username = strUser;
+					}
+				}
+			}
+			catch (Exception e) {
+				strErr = e.ToString ();
+				fInsert = false;
+			}
+			return(fInsert);
+		}
+//-----------------------------------------------------------------------------
+		public new bool UpdateInDB (MySqlCommand cmd, ref string strErr) {
+			bool fUpdate =false;
+
+			try { // 7193 - david, 8425 - roy
+				string strSql = String.Format("update {0} set" +
+														"{1}={2}," + // first
+														"{3}={4}," + // last
+														"{3}={4}," + // username
+														"{5}={6}," + // passwword
+														"{7}={8}," + // level
+														"{9}={10}" + // Is Active
+											"where {11}={12};",
+							Table,
+							FldFirst, TMisc.GetDBUpdateValue (First),
+							FldLast, TMisc.GetDBUpdateValue (Last),
+							FldUsername, TMisc.GetDBUpdateValue (Username),
+							FldPasswd, TMisc.GetDBUpdateValue (Password),
+							FldLevelID, TMisc.GetDBUpdateValue (m_idLevel),
+							FldIsActive, TMisc.GetDBUpdateValue (IsActive),
+							FldUserID, ID);
+					cmd.CommandText = strSql;
+					fUpdate = cmd.ExecuteNonQuery() > 0;
+			}
+			catch (Exception e) {
+				strErr = e.ToString ();
+				fUpdate = false;
+			}
+			return(fUpdate);
+		}
+//-----------------------------------------------------------------------------
+		public new bool DeleteFromDB (MySqlCommand cmd, ref string strErr) {
+			bool fDel =false;
+			try {
+				string strSql = String.Format ("delete from {0} where {1}={2}",
+											Table, FldUserID, ID);
+				cmd.CommandText = strSql;
+				fDel = cmd.ExecuteNonQuery() > 0;
+			}
+			catch (Exception e) {
+				strErr = e.ToString ();
+				fDel = false;
+			}
+			return(fDel);
+		}
+//-----------------------------------------------------------------------------
 	}
 }
