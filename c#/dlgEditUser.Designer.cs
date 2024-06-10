@@ -34,7 +34,7 @@
 			txtbxLast = new TextBox();
 			txtbxUsername = new TextBox();
 			txtbxPassword = new TextBox();
-			comboLevers = new ComboBox();
+			comboLevels = new ComboBox();
 			cboxActive = new CheckBox();
 			txtbxID = new TextBox();
 			SuspendLayout();
@@ -56,6 +56,7 @@
 			btnOK.TabIndex = 2;
 			btnOK.Text = "OK";
 			btnOK.UseVisualStyleBackColor = true;
+			btnOK.Click += btnOK_Click;
 			// 
 			// label1
 			// 
@@ -130,13 +131,15 @@
 			txtbxPassword.Size = new Size(100, 23);
 			txtbxPassword.TabIndex = 12;
 			// 
-			// comboLevers
+			// comboLevels
 			// 
-			comboLevers.FormattingEnabled = true;
-			comboLevers.Location = new Point(164, 166);
-			comboLevers.Name = "comboLevers";
-			comboLevers.Size = new Size(100, 23);
-			comboLevers.TabIndex = 13;
+			comboLevels.DropDownStyle = ComboBoxStyle.DropDownList;
+			comboLevels.FormattingEnabled = true;
+			comboLevels.Location = new Point(164, 166);
+			comboLevels.Name = "comboLevels";
+			comboLevels.Size = new Size(100, 23);
+			comboLevels.Sorted = true;
+			comboLevels.TabIndex = 13;
 			// 
 			// cboxActive
 			// 
@@ -164,7 +167,7 @@
 			ClientSize = new Size(387, 292);
 			Controls.Add(txtbxID);
 			Controls.Add(cboxActive);
-			Controls.Add(comboLevers);
+			Controls.Add(comboLevels);
 			Controls.Add(txtbxPassword);
 			Controls.Add(txtbxUsername);
 			Controls.Add(txtbxLast);
@@ -200,7 +203,7 @@
 		private TextBox txtbxLast;
 		private TextBox txtbxUsername;
 		private TextBox txtbxPassword;
-		private ComboBox comboLevers;
+		private ComboBox comboLevels;
 		private CheckBox cboxActive;
 		private TextBox txtbxID;
 	}

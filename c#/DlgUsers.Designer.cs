@@ -107,6 +107,7 @@
 			btnEdit.TabIndex = 4;
 			btnEdit.Text = "Edit...";
 			btnEdit.UseVisualStyleBackColor = true;
+			btnEdit.Click += btnEdit_Click;
 			// 
 			// btnDel
 			// 

@@ -3,31 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\misc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:misc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\stringint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:stringint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:dlgusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\misc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:misc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -35,12 +39,8 @@
       "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\rtcm.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|c:\\users\\omer\\documents\\projects\\rotem\\rtcm\\c#\\rtcm.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:rtcm.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\stringint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B42BAA96-CBB0-470A-B7EA-39F76241555D}|RTCM.csproj|solutionrelative:stringint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,6 +55,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DlgUsers.cs",
+              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\DlgUsers.cs",
+              "RelativeDocumentMoniker": "DlgUsers.cs",
+              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\DlgUsers.cs",
+              "RelativeToolTip": "DlgUsers.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAtwF0AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T08:37:29.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\UserInfo.cs",
+              "RelativeDocumentMoniker": "UserInfo.cs",
+              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\UserInfo.cs*",
+              "RelativeToolTip": "UserInfo.cs*",
+              "ViewState": "AQIAAN0AAAAAAAAAAAAUwPcAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T10:17:22.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DlgUsers.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\DlgUsers.cs",
               "RelativeDocumentMoniker": "DlgUsers.cs",
@@ -66,13 +92,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "StringInt.cs",
+              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\StringInt.cs",
+              "RelativeDocumentMoniker": "StringInt.cs",
+              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\StringInt.cs",
+              "RelativeToolTip": "StringInt.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T09:53:43.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "dlgEditUser.cs",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgEditUser.cs",
               "RelativeDocumentMoniker": "dlgEditUser.cs",
               "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgEditUser.cs",
               "RelativeToolTip": "dlgEditUser.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACoAAAAmAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAiwCEAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T13:28:50.425Z",
               "EditorCaption": ""
@@ -80,32 +119,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserInfo.cs",
-              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\UserInfo.cs",
-              "RelativeDocumentMoniker": "UserInfo.cs",
-              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\UserInfo.cs",
-              "RelativeToolTip": "UserInfo.cs",
-              "ViewState": "AQIAAKUAAAAAAAAAAAAIwKwAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T10:17:22.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Misc.cs",
-              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\Misc.cs",
-              "RelativeDocumentMoniker": "Misc.cs",
-              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\Misc.cs",
-              "RelativeToolTip": "Misc.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAowE4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T08:26:33.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "dlgEditUser.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\dlgEditUser.cs",
               "RelativeDocumentMoniker": "dlgEditUser.cs",
@@ -117,20 +130,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DlgUsers.cs",
-              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\DlgUsers.cs",
-              "RelativeDocumentMoniker": "DlgUsers.cs",
-              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\DlgUsers.cs",
-              "RelativeToolTip": "DlgUsers.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAQwEcAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "Misc.cs",
+              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\Misc.cs",
+              "RelativeDocumentMoniker": "Misc.cs",
+              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\Misc.cs",
+              "RelativeToolTip": "Misc.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAA5wE4AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T08:37:29.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T08:26:33.606Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "main.cs",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\main.cs",
               "RelativeDocumentMoniker": "main.cs",
@@ -144,39 +156,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "StringInt.cs",
-              "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\StringInt.cs",
-              "RelativeDocumentMoniker": "StringInt.cs",
-              "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\StringInt.cs",
-              "RelativeToolTip": "StringInt.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T09:53:43.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "RTCM",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\RTCM.csproj",
               "RelativeDocumentMoniker": "RTCM.csproj",
               "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\RTCM.csproj",
               "RelativeToolTip": "RTCM.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-30T08:12:32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T08:12:32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "main.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\main.cs",
               "RelativeDocumentMoniker": "main.cs",
               "ToolTip": "C:\\Users\\Omer\\Documents\\Projects\\Rotem\\RTCM\\c#\\main.cs [Design]",
               "RelativeToolTip": "main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T07:47:59.869Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-30T07:47:59.869Z"
             }
           ]
         }

@@ -29,8 +29,8 @@ namespace RTCM {
 		//-----------------------------------------------------------------------------
 		public bool Execute(MySqlConnection database) {
 			Download(database);
-			ShowDialog();
-			return (true);
+			return (ShowDialog() == DialogResult.OK);
+			//return (true);
 		}
 		//-----------------------------------------------------------------------------
 		private void btnOK_Click(object sender, EventArgs e) {
@@ -42,6 +42,7 @@ namespace RTCM {
 			m_database = database;
 			m_cmd = new MySqlCommand();
 			m_cmd.Connection = m_database;
+			//DownloadLevels (m_cmd);
 			if (TUserInfo.LoadUsers(m_cmd, aUsers, ref m_strErr))
 				DownloadUsers(aUsers);
 		}
@@ -53,34 +54,48 @@ namespace RTCM {
 		}
 		//-----------------------------------------------------------------------------
 		private void DownloadUserRow(int row, TUserInfo user) {
+			gridUsers.Rows[row].Cells[0].Tag = user.ID;
 			gridUsers.Rows[row].Cells[0].Value = user.GetFullName();
 			gridUsers.Rows[row].Cells[1].Value = user.Username;
 			gridUsers.Rows[row].Cells[2].Value = user.Level;
 			gridUsers.Rows[row].Cells[3].Value = user.IsActive ? "Active" : "Not Active";
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void btnAdd_Click(object sender, EventArgs e) {
 			TUserInfo user = new TUserInfo();
 			m_strErr = "";
-			if (user.InsertyAsNew (m_cmd, ref m_strErr))
-				if (EditUser (user)) {
-					if (user.UpdateInDB (m_cmd, ref m_strErr))
-						AddRow (user);
-				}
-				else
-					user.DeleteFromDB (m_cmd, ref m_strErr);
+			if (user.InsertyAsNew(m_cmd, ref m_strErr))
+				if (EditUser(user)) {
+					if (user.UpdateInDB(m_cmd, ref m_strErr))
+						AddRow(user);
+				} else
+					user.DeleteFromDB(m_cmd, ref m_strErr);
 			if (m_strErr.Length > 0)
 				MessageBox.Show(m_strErr);
 		}
-//-----------------------------------------------------------------------------
-		private bool EditUser (TUserInfo user) {
+		//-----------------------------------------------------------------------------
+		private bool EditUser(TUserInfo user) {
 			dlgEditUser dlg = new dlgEditUser();
-			return (dlg.Execute (user));
+			return (dlg.Execute(user, m_cmd));
 		}
 //-----------------------------------------------------------------------------
-		private void AddRow (TUserInfo user) {
+		private void AddRow(TUserInfo user) {
 			gridUsers.RowCount += 1;
 			DownloadUserRow(gridUsers.RowCount - 1, user);
+		}
+//-----------------------------------------------------------------------------
+		private void btnEdit_Click(object sender, EventArgs e) {
+			TUserInfo user = new TUserInfo ();
+			if (gridUsers.CurrentRow != null) {
+				int row = gridUsers.CurrentRow.Index;
+				user.ID = (int) gridUsers.Rows[row].Cells[0].Tag;
+				if (user.LoadFromDBByID (m_cmd, ref m_strErr)) {
+					if (EditUser (user)) {
+						if (user.UpdateInDB (m_cmd, ref m_strErr))
+							DownloadUserRow(row, user);
+					}
+				}
+			}
 		}
 //-----------------------------------------------------------------------------
 	}

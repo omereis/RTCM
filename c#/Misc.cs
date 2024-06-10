@@ -76,7 +76,7 @@ namespace RTCM {
 			return (strDB);
 		}
 //-----------------------------------------------------------------------------
-		public static int ReadIntFeild (MySqlDataReader reader, string strField, int nDef=0) {
+		public static int ReadIntField (MySqlDataReader reader, string strField, int nDef=0) {
 			int nValue = 0;
 			try {
 				int nCol = reader.GetOrdinal(strField);

@@ -13,6 +13,7 @@ using System.Collections;
 //-----------------------------------------------------------------------------
 using Mysqlx.Crud;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 //-----------------------------------------------------------------------------
 namespace RTCM {
 	public class TUserInfo {
@@ -30,6 +31,7 @@ namespace RTCM {
 		public string Username {get{return(m_strUsername);}set{m_strUsername=value;}}
 		public string Password {get{return(m_strPassword);}set{m_strPassword=value;}}
 		public string Level {get{return(m_strLevel);}set{m_strLevel=value;}}
+		public int LevelID {get{return(m_idLevel);}set{m_idLevel=value;}}
 		public bool IsActive {get{return(m_fIsActive);}set{m_fIsActive=value;}}
 //-----------------------------------------------------------------------------
 		public TUserInfo () {
@@ -58,7 +60,7 @@ namespace RTCM {
 			Username = other.Username;
 			Password = other.Password;
 			Level    = other.Level;
-			m_idLevel = other.m_idLevel;
+			LevelID  = other.LevelID;
 			IsActive = other.IsActive;
 		}
 //-----------------------------------------------------------------------------
@@ -113,7 +115,16 @@ namespace RTCM {
 			bool fDel = userDB.DeleteFromDB (cmd, ref strErr);
 			return (fDel);
 		}
+//-----------------------------------------------------------------------------
+		public bool LoadFromDBByID (MySqlCommand cmd, ref string strErr) {
+			TUserInfoDB userDB = new TUserInfoDB(this);
+			bool fLoad = userDB.LoadFromDBByID (cmd, ref strErr);
+			if (fLoad)
+				AssignAll (userDB);
+			return (fLoad);
+		}
 	}
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	public class TUserInfoDB : TUserInfo {
 		private static readonly string View = "vUsers";
@@ -164,7 +175,7 @@ namespace RTCM {
 
 			try {
 				Clear ();
-				ID       = TMisc.ReadIntFeild(reader, FldUserID);// reader[ID] as int? ?? 0;
+				ID       = TMisc.ReadIntField(reader, FldUserID);// reader[ID] as int? ?? 0;
 				First    = reader[FldFirst] as string;
 				Last     = reader[FldLast] as string;
 				Username = reader[FldUsername] as string;
@@ -172,7 +183,7 @@ namespace RTCM {
 				Level    = reader[FldLevel] as string;
 				string str = reader[FldLevelID] as string;
 				m_idLevel = TMisc.ToIntDef (str, 0);
-				int nActive = TMisc.ReadIntFeild(reader, FldIsActive);
+				int nActive = TMisc.ReadIntField(reader, FldIsActive);
 				IsActive = nActive == 1 ? true : false;
 				fRead = true;
 			}
@@ -211,14 +222,15 @@ namespace RTCM {
 			bool fUpdate =false;
 
 			try { // 7193 - david, 8425 - roy
-				string strSql = String.Format("update {0} set" +
+				string strSql = String.Format("update {0} set " +
 														"{1}={2}," + // first
 														"{3}={4}," + // last
 														"{3}={4}," + // username
 														"{5}={6}," + // passwword
 														"{7}={8}," + // level
-														"{9}={10}" + // Is Active
-											"where {11}={12};",
+														"{9}={10}," + // Is Active
+														"{11}={12}" + // Is Active
+											" where {13}={14};",
 							Table,
 							FldFirst, TMisc.GetDBUpdateValue (First),
 							FldLast, TMisc.GetDBUpdateValue (Last),
@@ -250,6 +262,29 @@ namespace RTCM {
 				fDel = false;
 			}
 			return(fDel);
+		}
+//-----------------------------------------------------------------------------
+		public new bool LoadFromDBByID (MySqlCommand cmd, ref string strErr) {
+			bool fLoad =false;
+			MySqlDataReader reader = null;
+			try {
+				string strSql = String.Format ("select * from {0} where {1}={2}",
+											View, FldUserID, ID);
+				cmd.CommandText = strSql;
+				reader = cmd.ExecuteReader ();
+				if ((fLoad = reader.Read ()) == true) {
+					fLoad = LoadFromReader (reader, ref strErr);
+				}
+			}
+			catch (Exception e) {
+				strErr = e.ToString ();
+				fLoad = false;
+			}
+			finally {
+				if (reader != null)
+					reader.Close();
+			}
+			return(fLoad);
 		}
 //-----------------------------------------------------------------------------
 	}
