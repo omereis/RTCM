@@ -20,9 +20,11 @@ namespace RTCM {
 		//-----------------------------------------------------------------------------
 		private MySqlCommand m_cmd;
 		private string m_strErr = "";
+		private char m_cPasswd;
 		public dlgEditUser() {
 			InitializeComponent();
 			m_strErr = "";
+			m_cPasswd = txtbxPassword.PasswordChar;
 		}
 		//-----------------------------------------------------------------------------
 		public bool Execute(TUserInfo user, MySqlCommand cmd) {
@@ -93,9 +95,19 @@ namespace RTCM {
 				user.LevelID = si.IntVal;
 			}
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void btnOK_Click(object sender, EventArgs e) {
 			DialogResult = DialogResult.OK;
+		}
+		//-----------------------------------------------------------------------------
+		private void btnShow_Click(object sender, EventArgs e) {
+			txtbxPassword.PasswordChar = '\0';
+			timerShow.Enabled = true;
+		}
+//-----------------------------------------------------------------------------
+		private void timerShow_Tick(object sender, EventArgs e) {
+			txtbxPassword.PasswordChar = m_cPasswd;
+			timerShow.Enabled = false;
 		}
 //-----------------------------------------------------------------------------
 	}

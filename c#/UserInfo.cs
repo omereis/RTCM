@@ -93,7 +93,10 @@ namespace RTCM {
 		}
 //-----------------------------------------------------------------------------
 		public string GetFullName () {
-			return (First + " " + Last);
+			string strFullName = (First + " " + Last);
+			if (strFullName.Trim().Length == 0 )
+				strFullName = Username;
+			return (strFullName);
 		}
 //-----------------------------------------------------------------------------
 		public bool InsertyAsNew (MySqlCommand cmd, ref string strErr) {

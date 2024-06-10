@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			components = new System.ComponentModel.Container();
 			btnCancel = new Button();
 			btnOK = new Button();
 			label1 = new Label();
@@ -37,6 +38,8 @@
 			comboLevels = new ComboBox();
 			cboxActive = new CheckBox();
 			txtbxID = new TextBox();
+			btnShow = new Button();
+			timerShow = new System.Windows.Forms.Timer(components);
 			SuspendLayout();
 			// 
 			// btnCancel
@@ -44,7 +47,7 @@
 			btnCancel.Location = new Point(219, 252);
 			btnCancel.Name = "btnCancel";
 			btnCancel.Size = new Size(75, 23);
-			btnCancel.TabIndex = 3;
+			btnCancel.TabIndex = 8;
 			btnCancel.Text = "Cancel";
 			btnCancel.UseVisualStyleBackColor = true;
 			// 
@@ -53,7 +56,7 @@
 			btnOK.Location = new Point(110, 252);
 			btnOK.Name = "btnOK";
 			btnOK.Size = new Size(75, 23);
-			btnOK.TabIndex = 2;
+			btnOK.TabIndex = 7;
 			btnOK.Text = "OK";
 			btnOK.UseVisualStyleBackColor = true;
 			btnOK.Click += btnOK_Click;
@@ -108,28 +111,29 @@
 			txtbxFirst.Location = new Point(164, 23);
 			txtbxFirst.Name = "txtbxFirst";
 			txtbxFirst.Size = new Size(100, 23);
-			txtbxFirst.TabIndex = 9;
+			txtbxFirst.TabIndex = 0;
 			// 
 			// txtbxLast
 			// 
 			txtbxLast.Location = new Point(164, 58);
 			txtbxLast.Name = "txtbxLast";
 			txtbxLast.Size = new Size(100, 23);
-			txtbxLast.TabIndex = 10;
+			txtbxLast.TabIndex = 1;
 			// 
 			// txtbxUsername
 			// 
 			txtbxUsername.Location = new Point(164, 94);
 			txtbxUsername.Name = "txtbxUsername";
 			txtbxUsername.Size = new Size(100, 23);
-			txtbxUsername.TabIndex = 11;
+			txtbxUsername.TabIndex = 2;
 			// 
 			// txtbxPassword
 			// 
 			txtbxPassword.Location = new Point(164, 129);
 			txtbxPassword.Name = "txtbxPassword";
+			txtbxPassword.PasswordChar = '#';
 			txtbxPassword.Size = new Size(100, 23);
-			txtbxPassword.TabIndex = 12;
+			txtbxPassword.TabIndex = 3;
 			// 
 			// comboLevels
 			// 
@@ -139,7 +143,7 @@
 			comboLevels.Name = "comboLevels";
 			comboLevels.Size = new Size(100, 23);
 			comboLevels.Sorted = true;
-			comboLevels.TabIndex = 13;
+			comboLevels.TabIndex = 4;
 			// 
 			// cboxActive
 			// 
@@ -147,7 +151,7 @@
 			cboxActive.Location = new Point(175, 204);
 			cboxActive.Name = "cboxActive";
 			cboxActive.Size = new Size(59, 19);
-			cboxActive.TabIndex = 15;
+			cboxActive.TabIndex = 5;
 			cboxActive.Text = "Active";
 			cboxActive.UseVisualStyleBackColor = true;
 			// 
@@ -156,7 +160,22 @@
 			txtbxID.Location = new Point(275, 23);
 			txtbxID.Name = "txtbxID";
 			txtbxID.Size = new Size(30, 23);
-			txtbxID.TabIndex = 16;
+			txtbxID.TabIndex = 6;
+			// 
+			// btnShow
+			// 
+			btnShow.Image = Properties.Resources.show_32;
+			btnShow.Location = new Point(270, 129);
+			btnShow.Name = "btnShow";
+			btnShow.Size = new Size(38, 23);
+			btnShow.TabIndex = 9;
+			btnShow.UseVisualStyleBackColor = true;
+			btnShow.Click += btnShow_Click;
+			// 
+			// timerShow
+			// 
+			timerShow.Interval = 2000;
+			timerShow.Tick += timerShow_Tick;
 			// 
 			// dlgEditUser
 			// 
@@ -165,6 +184,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			CancelButton = btnCancel;
 			ClientSize = new Size(387, 292);
+			Controls.Add(btnShow);
 			Controls.Add(txtbxID);
 			Controls.Add(cboxActive);
 			Controls.Add(comboLevels);
@@ -206,5 +226,7 @@
 		private ComboBox comboLevels;
 		private CheckBox cboxActive;
 		private TextBox txtbxID;
+		private Button btnShow;
+		private System.Windows.Forms.Timer timerShow;
 	}
 }

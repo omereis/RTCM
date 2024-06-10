@@ -78,21 +78,52 @@ namespace RTCM {
 			dlgEditUser dlg = new dlgEditUser();
 			return (dlg.Execute(user, m_cmd));
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void AddRow(TUserInfo user) {
 			gridUsers.RowCount += 1;
 			DownloadUserRow(gridUsers.RowCount - 1, user);
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void btnEdit_Click(object sender, EventArgs e) {
-			TUserInfo user = new TUserInfo ();
+			EditGridRow();
+		}
+//-----------------------------------------------------------------------------
+		private void EditGridRow() {
+			TUserInfo user = new TUserInfo();
 			if (gridUsers.CurrentRow != null) {
 				int row = gridUsers.CurrentRow.Index;
-				user.ID = (int) gridUsers.Rows[row].Cells[0].Tag;
-				if (user.LoadFromDBByID (m_cmd, ref m_strErr)) {
-					if (EditUser (user)) {
-						if (user.UpdateInDB (m_cmd, ref m_strErr))
+				if (UploadUserFromRow (user, row)) {
+				//user.ID = (int)gridUsers.Rows[row].Cells[0].Tag;
+				//if (user.LoadFromDBByID(m_cmd, ref m_strErr)) {
+					if (EditUser(user)) {
+						if (user.UpdateInDB(m_cmd, ref m_strErr))
 							DownloadUserRow(row, user);
+					}
+				}
+			}
+		}
+//-----------------------------------------------------------------------------
+		private bool UploadUserFromRow (TUserInfo user, int row) {
+			bool fLoad;
+			user.ID = (int) gridUsers.Rows[row].Cells[0].Tag;
+			fLoad = user.LoadFromDBByID(m_cmd, ref m_strErr);
+			return (fLoad);
+		}
+//-----------------------------------------------------------------------------
+		private void gridUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+			EditGridRow();
+		}
+//-----------------------------------------------------------------------------
+		private void btnDel_Click(object sender, EventArgs e) {
+			if (gridUsers.CurrentRow != null) {
+				TUserInfo user = new TUserInfo ();
+				int row = gridUsers.CurrentRow.Index;
+				if (UploadUserFromRow (user, row)) {
+					string strMsg = String.Format ("Delete user {0}?", user.GetFullName());
+					if (MessageBox.Show (strMsg, "Delete User",
+							MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
+						if (user.DeleteFromDB (m_cmd, ref m_strErr))
+							gridUsers.Rows.RemoveAt (row);
 					}
 				}
 			}

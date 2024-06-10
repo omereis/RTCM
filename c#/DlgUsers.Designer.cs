@@ -68,6 +68,7 @@
 			gridUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			gridUsers.Size = new Size(437, 271);
 			gridUsers.TabIndex = 2;
+			gridUsers.CellDoubleClick += gridUsers_CellDoubleClick;
 			// 
 			// Column1
 			// 
@@ -117,6 +118,7 @@
 			btnDel.TabIndex = 5;
 			btnDel.Text = "Delete...";
 			btnDel.UseVisualStyleBackColor = true;
+			btnDel.Click += btnDel_Click;
 			// 
 			// DlgUsers
 			// 
