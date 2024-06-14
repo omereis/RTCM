@@ -89,5 +89,12 @@ namespace RTCM {
 			return (nValue);
 		}
 //-----------------------------------------------------------------------------
+		public static string ModifySqlString (string strSource)  {
+			string strSql;
+
+			strSql = strSource.Replace ("'", "''");
+			return (strSql);
+		}
+//-----------------------------------------------------------------------------
 	}
 }

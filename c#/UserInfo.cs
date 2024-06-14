@@ -126,8 +126,18 @@ namespace RTCM {
 				AssignAll (userDB);
 			return (fLoad);
 		}
+//-----------------------------------------------------------------------------
+		public bool IsValidUsername (MySqlCommand cmd, ref bool fNameOK, ref string strErr) {
+			return (IsValidUsername (cmd, Username, ref fNameOK, ref strErr));
+			//TUserInfoDB userDB = new TUserInfoDB(this);
+			//return (userDB.IsValidUsername (cmd, ref fNameOK, ref strErr));
+		}
+//-----------------------------------------------------------------------------
+		public bool IsValidUsername (MySqlCommand cmd, string strUsername, ref bool fNameOK, ref string strErr) {
+			TUserInfoDB userDB = new TUserInfoDB(this);
+			return (userDB.IsValidUsername (cmd, strUsername, ref fNameOK, ref strErr));
+		}
 	}
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	public class TUserInfoDB : TUserInfo {
 		private static readonly string View = "vUsers";
@@ -288,6 +298,33 @@ namespace RTCM {
 					reader.Close();
 			}
 			return(fLoad);
+		}
+//-----------------------------------------------------------------------------
+		public new bool IsValidUsername (MySqlCommand cmd, string strUsername, ref bool fNameOK, ref string strErr) {
+			bool fCheck;
+			MySqlDataReader reader = null;
+			try {
+				fNameOK = false;
+				fCheck = true;
+				string strSql = String.Format ("select count(*) as count from {0} where ({1}='{2}') and ({3} <> {4});",
+									Table, FldUsername, strUsername, FldUserID, ID);
+				cmd.CommandText = strSql;
+				reader = cmd.ExecuteReader ();
+				if (reader.Read()) {
+					int nCount = Convert.ToInt32(reader[0]);
+					fNameOK = nCount == 0;//TMisc.ToIntDef (reader[0] as string) == 0;
+					fCheck = true;
+				}
+			}
+			catch  (Exception ex) {
+				strErr = ex.Message;
+				fCheck = false;
+			}
+			finally {
+				if (reader != null)
+					reader.Close();
+			}
+			return (fCheck);
 		}
 //-----------------------------------------------------------------------------
 	}

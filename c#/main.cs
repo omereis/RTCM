@@ -29,16 +29,7 @@ namespace RTCM {
 		}
 //-----------------------------------------------------------------------------
 		private void button1_Click(object sender, EventArgs e) {
-			if (m_database == null) {
-				string strConn = string.Format("Server='{0}'; database='{1}'; UID='{2}'; password='{3}'", "127.0.0.1", "RTCM", "RotemRadAdmin", "RotemRad2024");
-				m_database = new MySqlConnection(strConn);
-				try {
-					m_database.Open();
-					MessageBox.Show("Connected");
-				} catch (Exception ex) {
-					MessageBox.Show(ex.Message);
-				}
-			}
+			txtbxSql.Text = TMisc.ModifySqlString(txtbxSrc.Text);
 		}
 		//-----------------------------------------------------------------------------
 		private void main_FormClosed(object sender, FormClosedEventArgs e) {

@@ -41,6 +41,7 @@ namespace RTCM {
 #if DEBUG
 			fDebug = true;
 #endif
+			m_cmd = cmd;
 			DownloadLevels(cmd);
 			txtbxID.Visible = fDebug;
 			txtbxID.Text = user.ID.ToString();
@@ -60,6 +61,18 @@ namespace RTCM {
 			user.Password = txtbxPassword.Text;
 			user.IsActive = cboxActive.Checked;
 			UploadUserLevel(user);
+		}
+		//-----------------------------------------------------------------------------
+		private TUserInfo Upload() {
+			TUserInfo user = new TUserInfo();
+			user.ID = TMisc.ToIntDef(txtbxID.Text);
+			user.First = txtbxFirst.Text;
+			user.Last = txtbxLast.Text;
+			user.Username = txtbxUsername.Text;
+			user.Password = txtbxPassword.Text;
+			user.IsActive = cboxActive.Checked;
+			UploadUserLevel(user);
+			return (user);
 		}
 		//-----------------------------------------------------------------------------
 		private void DownloadLevels(MySqlCommand cmd) {
@@ -104,10 +117,54 @@ namespace RTCM {
 			txtbxPassword.PasswordChar = '\0';
 			timerShow.Enabled = true;
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void timerShow_Tick(object sender, EventArgs e) {
-			txtbxPassword.PasswordChar = m_cPasswd;
+			txtbxPassword.PasswordChar = '\0';
 			timerShow.Enabled = false;
+		}
+		//-----------------------------------------------------------------------------
+		private void btnCheckUser_Click(object sender, EventArgs e) {
+			CheckUsername();
+		}
+		//-----------------------------------------------------------------------------
+		private bool CheckUsername() {
+			TUserInfo user = new TUserInfo();
+			bool fNameOK = false;
+			Upload(user);
+			if (user.IsValidUsername(m_cmd, ref fNameOK, ref m_strErr)) {
+				if (fNameOK)
+					MessageBox.Show(String.Format("Username '{0}' valid", user.Username));
+				else
+					MessageBox.Show(String.Format("Username '{0}' NOT VALID", user.Username), "Check Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} else
+				MessageBox.Show(m_strErr);
+			return (fNameOK);
+		}
+		//-----------------------------------------------------------------------------
+		private void btnSuggestUser_Click(object sender, EventArgs e) {
+			TUserInfo user = Upload();
+			int n = user.ID;
+			bool fValid = false, fNameOK = false;
+			string strUsername = "";
+
+			while (!fValid) {
+				strUsername = String.Format("user{0}", n);
+				if (user.IsValidUsername(m_cmd, strUsername, ref fNameOK, ref m_strErr))
+					if (!fNameOK)
+						n++;
+					else
+						fValid = true;
+			}
+			if (fValid) {
+				txtbxUsername.Text = strUsername;
+				txtbxUsername.BackColor = Color.Yellow;
+				timerSuggest.Enabled = true;
+			}
+		}
+//-----------------------------------------------------------------------------
+		private void timerSuggest_Tick(object sender, EventArgs e) {
+			txtbxUsername.BackColor = Color.White;
+			timerSuggest.Enabled = false;
 		}
 //-----------------------------------------------------------------------------
 	}

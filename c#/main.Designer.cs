@@ -38,6 +38,8 @@
 			button1 = new Button();
 			statusStrip1 = new StatusStrip();
 			sblblDatabase = new ToolStripStatusLabel();
+			txtbxSrc = new TextBox();
+			txtbxSql = new TextBox();
 			menuMain.SuspendLayout();
 			statusStrip1.SuspendLayout();
 			SuspendLayout();
@@ -92,13 +94,13 @@
 			// instrumentsToolStripMenuItem1
 			// 
 			instrumentsToolStripMenuItem1.Name = "instrumentsToolStripMenuItem1";
-			instrumentsToolStripMenuItem1.Size = new Size(180, 22);
+			instrumentsToolStripMenuItem1.Size = new Size(146, 22);
 			instrumentsToolStripMenuItem1.Text = "Instruments...";
 			// 
 			// usersToolStripMenuItem
 			// 
 			usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			usersToolStripMenuItem.Size = new Size(180, 22);
+			usersToolStripMenuItem.Size = new Size(146, 22);
 			usersToolStripMenuItem.Text = "Users...";
 			usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
 			// 
@@ -140,11 +142,28 @@
 			sblblDatabase.Size = new Size(55, 17);
 			sblblDatabase.Text = "Database";
 			// 
+			// txtbxSrc
+			// 
+			txtbxSrc.Location = new Point(296, 138);
+			txtbxSrc.Name = "txtbxSrc";
+			txtbxSrc.Size = new Size(213, 23);
+			txtbxSrc.TabIndex = 4;
+			txtbxSrc.Text = "abc'dfg";
+			// 
+			// txtbxSql
+			// 
+			txtbxSql.Location = new Point(296, 167);
+			txtbxSql.Name = "txtbxSql";
+			txtbxSql.Size = new Size(213, 23);
+			txtbxSql.TabIndex = 5;
+			// 
 			// main
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(txtbxSql);
+			Controls.Add(txtbxSrc);
 			Controls.Add(statusStrip1);
 			Controls.Add(button1);
 			Controls.Add(menuMain);
@@ -177,5 +196,7 @@
 		private Button button1;
 		private StatusStrip statusStrip1;
 		private ToolStripStatusLabel sblblDatabase;
+		private TextBox txtbxSrc;
+		private TextBox txtbxSql;
 	}
 }
