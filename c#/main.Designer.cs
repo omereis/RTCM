@@ -94,13 +94,14 @@
 			// instrumentsToolStripMenuItem1
 			// 
 			instrumentsToolStripMenuItem1.Name = "instrumentsToolStripMenuItem1";
-			instrumentsToolStripMenuItem1.Size = new Size(146, 22);
+			instrumentsToolStripMenuItem1.Size = new Size(180, 22);
 			instrumentsToolStripMenuItem1.Text = "Instruments...";
+			instrumentsToolStripMenuItem1.Click += instrumentsToolStripMenuItem1_Click;
 			// 
 			// usersToolStripMenuItem
 			// 
 			usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			usersToolStripMenuItem.Size = new Size(146, 22);
+			usersToolStripMenuItem.Size = new Size(180, 22);
 			usersToolStripMenuItem.Text = "Users...";
 			usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
 			// 

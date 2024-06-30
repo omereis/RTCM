@@ -18,16 +18,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace RTCM {
 	public partial class main : Form {
 		private MySqlConnection m_database;
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		public main() {
 			InitializeComponent();
 			m_database = null;
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void miExit_Click(object sender, EventArgs e) {
 			Close();
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void button1_Click(object sender, EventArgs e) {
 			txtbxSql.Text = TMisc.ModifySqlString(txtbxSrc.Text);
 		}
@@ -72,10 +72,16 @@ namespace RTCM {
 				}
 			}
 		}
-//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
 		private void usersToolStripMenuItem_Click(object sender, EventArgs e) {
 			DlgUsers dlg = new DlgUsers();
-			dlg.Execute (m_database);
+			dlg.Execute(m_database);
+		}
+//-----------------------------------------------------------------------------
+
+		private void instrumentsToolStripMenuItem1_Click(object sender, EventArgs e) {
+			dlgDevices dlg = new dlgDevices();
+			dlg.Execute();
 		}
 //-----------------------------------------------------------------------------
 	}
